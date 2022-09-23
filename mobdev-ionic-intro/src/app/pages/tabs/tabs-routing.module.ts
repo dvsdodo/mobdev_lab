@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
 
-path: 'tabs',
+const routes: Routes = [
+  {
+    path: 'tabs',
     component: TabsPage,
     children: [
       {
@@ -43,6 +45,8 @@ path: 'tabs',
     path: '',
     redirectTo: '/tabs/films',
     pathMatch: 'full'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
