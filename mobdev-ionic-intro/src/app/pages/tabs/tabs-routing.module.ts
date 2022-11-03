@@ -27,6 +27,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('../people/people.module').then( m => m.PeoplePageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../person-details/person-details.module').then( m => m.PersonDetailsPageModule)
           }
         ]
       },
@@ -36,6 +40,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('../planets/planets.module').then( m => m.PlanetsPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../planet-details/planet-details.module').then( m => m.PlanetDetailsPageModule)
           }
         ]
       }
@@ -44,6 +52,16 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/tabs/films',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/people',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/planets',
     pathMatch: 'full'
   }
 ];

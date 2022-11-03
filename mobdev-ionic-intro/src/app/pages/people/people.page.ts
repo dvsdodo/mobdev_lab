@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 
@@ -18,4 +19,9 @@ export class PeoplePage implements OnInit {
     this.people = this.api.getPeople();
   }
 
+  openDetails(person){
+    let split = person.url.split('/');
+    let personId = split[split.length-2];
+    this.router.navigateByUrl(`/tabs/people/${personId}`);
+  }
 }
