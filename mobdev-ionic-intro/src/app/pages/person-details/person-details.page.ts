@@ -3,20 +3,20 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-film-details',
-  templateUrl: './film-details.page.html',
-  styleUrls: ['./film-details.page.scss'],
+  selector: 'app-person-details',
+  templateUrl: './person-details.page.html',
+  styleUrls: ['./person-details.page.scss'],
 })
-export class FilmDetailsPage implements OnInit {
+export class PersonDetailsPage implements OnInit {
 
-  film: any;
+  person: any;
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.api.getFilm(id).subscribe(res => {
-      this.film = res;
+    this.api.getPerson(id).subscribe(res => {
+      this.person = res;
     });
   }
 
